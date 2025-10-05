@@ -46,7 +46,7 @@ export default function FruitsScreen() {
                             name={item.name}
                             price={item.price}
                             image={item.image}
-                            onPress={() => navigation.navigate("Order", { fruit: item })}
+                            onPress={() => navigation.navigate("OrderScreen", { fruit: item })}
                         />
                     )}
                 />
