@@ -1,4 +1,3 @@
-// app/index.tsx
 import { View, Text, Button, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 
@@ -12,10 +11,6 @@ export default function HomeScreen() {
 
       <View style={styles.buttonContainer}>
         <Button title="ดูรายการผลไม้" onPress={() => router.push("/fruits")} />
-      </View>
-
-      <View style={styles.buttonContainer}>
-        <Button title="สั่งซื้อผลไม้" onPress={() => router.push("/order")} />
       </View>
     </View>
   );
