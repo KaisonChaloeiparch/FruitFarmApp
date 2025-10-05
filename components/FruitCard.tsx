@@ -1,18 +1,19 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 type Props = {
   name: string;
   price: number;
   image: any;
+  onPress?: () => void;
 };
 
-export default function FruitCard({ name, price, image }: Props) {
+export default function FruitCard({ name, price, image, onPress }: Props) {
   return (
-    <View style={styles.card}>
+    <TouchableOpacity onPress={onPress} style={styles.card}>
       <Image source={image} style={styles.image} />
       <Text style={styles.name}>{name}</Text>
-      <Text style={styles.price}>{price} บาท/กก.</Text>
-    </View>
+      <Text style={styles.price}>{price} บาท</Text>
+    </TouchableOpacity>
   );
 }
 
