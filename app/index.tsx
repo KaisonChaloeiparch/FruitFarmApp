@@ -15,7 +15,7 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button title="สั่งซื้อผลไม้" onPress={() => router.push("/OrderScreen")} />
+        <Button title="สั่งซื้อผลไม้" onPress={() => router.push("/order")} />
       </View>
     </View>
   );

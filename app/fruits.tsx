@@ -3,6 +3,7 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native";
 import FruitCard from "../components/FruitCard";
+import { router } from "expo-router";
 
 type Fruit = {
     id: number;
@@ -46,7 +47,18 @@ export default function FruitsScreen() {
                             name={item.name}
                             price={item.price}
                             image={item.image}
-                            onPress={() => navigation.navigate("OrderScreen", { fruit: item })}
+                            onPress={() => {
+                                router.push({
+                                    pathname: "/order",
+                                    params: { 
+                                        "id" : item.id,
+                                        "name": item.name,
+                                        "price": item.price,
+                                        "image": item.image
+                                    },
+                                });
+                            }
+                            }
                         />
                     )}
                 />
