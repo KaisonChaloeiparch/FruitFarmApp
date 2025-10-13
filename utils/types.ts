@@ -1,9 +1,9 @@
-// utils/types.ts
-
-export interface Book {
-    id: string;
-    title: string;
-    description: string;
-    price: number;
-    image: string; // URI string
+// ประกาศ type Fruit และ export
+export interface Fruit {
+  id: string;
+  name: string;
+  color: string;
+  price: number;
+  stock?: number; // optional
+  image?: string; // optional URL ของรูปผลไม้
 }

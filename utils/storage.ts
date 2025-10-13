@@ -1,0 +1,45 @@
+// utils/storage.ts
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Fruit } from "./types";
+
+const STORAGE_KEY = "FRUITS_V1"; // ถ้าปรับ schema ให้เปลี่ยน key
+
+export const getFruits = async (): Promise<Fruit[]> => {
+    try {
+        const raw = await AsyncStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) as Fruit[] : [];
+    } catch (e) {
+        console.error("getFruits error", e);
+        return [];
+    }
+};
+
+export const addFruit = async (fruit: Fruit): Promise<void> => {
+    try {
+        const fruits = await getFruits();
+        fruits.push(fruit);
+        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(fruits));
+    } catch (e) {
+        console.error("addFruit error", e);
+    }
+};
+
+export const updateFruit = async (updated: Fruit): Promise<void> => {
+    try {
+        const fruits = await getFruits();
+        const next = fruits.map(f => (f.id === updated.id ? updated : f));
+        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    } catch (e) {
+        console.error("updateFruit error", e);
+    }
+};
+
+export const deleteFruit = async (id: string): Promise<void> => {
+    try {
+        const fruits = await getFruits();
+        const next = fruits.filter(f => f.id !== id);
+        await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    } catch (e) {
+        console.error("deleteFruit error", e);
+    }
+};

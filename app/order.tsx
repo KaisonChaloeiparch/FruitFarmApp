@@ -1,5 +1,5 @@
 import { RouteProp } from "@react-navigation/native";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import { Alert, Button, Text, TextInput, View } from "react-native";
 
@@ -28,7 +28,7 @@ export default function OrderScreen({  navigation }: Props) {
       "สั่งซื้อสำเร็จ",
       `คุณสั่งซื้อ ${name} จำนวน ${quantity} รวม ${total} บาท\nโอนเงิน: 123-456-789 ธ.กสิกรไทย`
     );
-    navigation.goBack();
+    router.back();
   };
 
   return (

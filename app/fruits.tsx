@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
+//  import { StackNavigationProp } from "@react-navigation/stack";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native";
 import FruitCard from "../components/FruitCard";
@@ -13,7 +13,7 @@ type Fruit = {
 };
 
 export default function FruitsScreen() {
-    const navigation = useNavigation<StackNavigationProp<any>>();
+    // const navigation = useNavigation<StackNavigationProp<any>>();
     const [fruits, setFruits] = useState<Fruit[]>([]);
     const [loading, setLoading] = useState(true);
 
